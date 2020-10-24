@@ -7,7 +7,7 @@ pipeline{
       }
      post{
       always{
-       jiraSendBuildInfo branch: 'BuildInfo', site: 'nikunjrchudasama.atlassian.net'
+       jiraSendBuildInfo branch: 'master', site: 'nikunjrchudasama.atlassian.net'
       }
      }
     }  
