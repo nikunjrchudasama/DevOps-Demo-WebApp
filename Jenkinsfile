@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('build'){
       steps{
-        echo 'Build successful..'
+        echo 'Build successful!!..'
       }
      post{
       always{
