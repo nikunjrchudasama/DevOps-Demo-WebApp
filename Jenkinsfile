@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('build'){
       steps{
-        echo 'Final build for entire pipeline!!..'
+        echo 'Last build for entire pipeline!!..'
       }
      post{
       always{
