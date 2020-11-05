@@ -4,6 +4,10 @@ pipeline {
     tools{
         maven 'Maven3.6.3' 
     }
+    
+    environment {
+        SONAR_ADMIN_CRED = credentials('sonar-admin')
+    }
 
     stages {
         
@@ -16,7 +20,7 @@ pipeline {
         stage('Code-Analysis'){
             steps{
                 withSonarQubeEnv('sonarqube') {
-                    sh 'mvn $SONAR_MAVEN_GOAL -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.inclusions=**/test/java/servlet/createpage_junit.java -Dsonar.test.exclusions=**/test/java/servlet/createpage_junit.java -Dsonar.login=admin -Dsonar.password=admin sonar:sonar -f pom.xml'
+                    sh 'mvn $SONAR_MAVEN_GOAL -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.inclusions=**/test/java/servlet/createpage_junit.java -Dsonar.test.exclusions=**/test/java/servlet/createpage_junit.java -Dsonar.login=$SONAR_ADMIN_CRED_USR -Dsonar.password=$SONAR_ADMIN_CRED_PSW sonar:sonar -f pom.xml'
                 }
             }
         }
