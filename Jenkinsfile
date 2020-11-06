@@ -27,6 +27,7 @@ pipeline {
         
         stage('Build'){
             steps{
+                echo 'Build started'
                 sh 'mvn clean install -f pom.xml'
             }
             post{
